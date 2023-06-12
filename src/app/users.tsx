@@ -9,12 +9,12 @@ export default function UsersList({}: React.PropsWithChildren): React.ReactEleme
     queryFn: getUser,
   });
 
-  if (isLoading) return <div>Loading</div>;
+  if (!user && isLoading) return <div>Loading</div>;
 
   return (
     <div>
-      <p>{user.name}</p>
-      <p>{user.age}</p>
+      <p>{user?.name}</p>
+      <p>{user?.email}</p>
     </div>
   );
 }
