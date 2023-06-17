@@ -12,8 +12,6 @@ async function main() {
       role: "admin",
     },
   });
-
-  console.log({ user });
 }
 
 main()

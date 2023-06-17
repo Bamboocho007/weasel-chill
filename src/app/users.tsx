@@ -1,12 +1,12 @@
 "use client";
 
+import { getUser } from "@/clientApi/routes/users";
 import { useQuery } from "@tanstack/react-query";
-import { getUser } from "./page";
 
 export default function UsersList({}: React.PropsWithChildren): React.ReactElement<HTMLDivElement> {
   const { data: user, isLoading } = useQuery({
     queryKey: ["user"],
-    queryFn: getUser,
+    queryFn: () => getUser("acc4fb7b-6ee0-4a14-b272-dd6725534c16"),
   });
 
   if (!user && isLoading) return <div>Loading</div>;
