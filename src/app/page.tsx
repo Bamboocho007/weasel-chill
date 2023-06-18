@@ -1,8 +1,10 @@
 import HydrateClientProvider from "@/utils/queryClient/hydrateQueryProvider";
-import UsersList from "./users";
 import getQueryClient from "@/utils/queryClient/getQueryClient";
 import { dehydrate } from "@tanstack/react-query";
 import { getUser } from "@/clientApi/routes/users";
+import { Footer, Header } from "./components";
+import { getServerSession } from "next-auth";
+import { options } from "./api/auth/[...nextauth]/route";
 
 export default async function Home() {
   const queryClient = getQueryClient();
@@ -11,11 +13,14 @@ export default async function Home() {
   );
   const dehydratedState = dehydrate(queryClient);
 
+  const session = await getServerSession(options);
+  console.log(session?.user);
+
   return (
-    <main>
-      <HydrateClientProvider state={dehydratedState}>
-        <UsersList />
-      </HydrateClientProvider>
-    </main>
+    <HydrateClientProvider state={dehydratedState}>
+      <Header />
+      <main>main</main>
+      <Footer />
+    </HydrateClientProvider>
   );
 }
