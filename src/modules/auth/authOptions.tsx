@@ -10,7 +10,7 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.AUTH_SECRET,
   providers: [
     CredentialsProvider({
-      name: "Sign in",
+      name: "credentials",
       credentials: {
         email: {
           label: "Email",

@@ -1,5 +1,5 @@
-import HydrateClientProvider from "@/utils/queryClient/hydrateQueryProvider";
-import getQueryClient from "@/utils/queryClient/getQueryClient";
+import { HydrateClientProvider } from "@/lib";
+import { getQueryClient } from "@/lib";
 import { dehydrate } from "@tanstack/react-query";
 import { getUser } from "@/clientApi/routes/users";
 import { Footer, Header } from "./components";
