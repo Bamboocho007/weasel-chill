@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
 
-module.exports = nextConfig
+// To prevent certain packages from being included in the client bundle,
+const nextConfig = {
+  experimental: {
+    appDir: true,
+    serverComponentsExternalPackages: ["@prisma/client", "bcryptjs"],
+  },
+};
+
+module.exports = nextConfig;

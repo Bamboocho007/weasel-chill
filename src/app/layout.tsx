@@ -1,7 +1,7 @@
 import QueryProvider from "@/utils/queryClient/queryClientProvider";
-import "./globals.scss";
-
 import { Inter } from "next/font/google";
+import "./globals.scss";
+import { NextAuthProvider } from "@/modules/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <QueryProvider>{children}</QueryProvider>
+        <NextAuthProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );
