@@ -1,4 +1,4 @@
-import axiosClient from "../axiosClient";
+import { axiosClient } from "@/utils";
 import { PublicUser } from "../models";
 
 export const getUser = async (userId: string): Promise<PublicUser> =>

@@ -1,4 +1,4 @@
-import { QueryProvider } from "@/lib";
+import { QueryProvider } from "@/utils";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import { NextAuthProvider } from "@/modules/auth";
